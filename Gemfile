@@ -85,7 +85,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller'
-  gem 'guard-rspec'
 end
 
 # Install gems from each theme
