@@ -1,0 +1,32 @@
+@import 'public/variables'
+
+article
+  .entry-title a
+    color: $title-color
+    &:hover
+      text-decoration: none
+
+  .published-on
+    color: $light-text-color
+
+    .p-author
+      color: $text-color
+
+  .article-tags
+    margin-top: -14px
+
+    .tag
+      display: inline-block
+      color: $light-text-color
+      border: 1px solid $light-text-color
+      padding: 0 2px
+      font-size: 0.8em
+      border-radius: 6px
+
+      &:hover
+        text-decoration: none
+        color: $text-color
+        border: 1px solid $text-color
+
+  small
+    font-size: 0.8em

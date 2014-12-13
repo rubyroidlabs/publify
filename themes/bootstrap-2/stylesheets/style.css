@@ -1,10 +1,13 @@
 body {
-  background: #edece3;
+  background: white;
 }
 
 /* Page header classes */
 .navbar {
   border-radius: 0;
+  background: white;
+  border: none;
+  border-bottom: 1px solid #e7e7e7;
 }
 
 #logo {

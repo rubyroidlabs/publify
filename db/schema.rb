@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 115) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles_tags", id: false, force: true do |t|
     t.integer "article_id"
     t.integer "tag_id"
@@ -48,8 +51,8 @@ ActiveRecord::Schema.define(version: 115) do
     t.string   "post_type",      default: "read"
   end
 
-  add_index "contents", ["published"], name: "index_contents_on_published"
-  add_index "contents", ["text_filter_id"], name: "index_contents_on_text_filter_id"
+  add_index "contents", ["published"], name: "index_contents_on_published", using: :btree
+  add_index "contents", ["text_filter_id"], name: "index_contents_on_text_filter_id", using: :btree
 
   create_table "feedback", force: true do |t|
     t.string   "type"
@@ -75,14 +78,14 @@ ActiveRecord::Schema.define(version: 115) do
     t.string   "user_agent"
   end
 
-  add_index "feedback", ["article_id"], name: "index_feedback_on_article_id"
-  add_index "feedback", ["text_filter_id"], name: "index_feedback_on_text_filter_id"
+  add_index "feedback", ["article_id"], name: "index_feedback_on_article_id", using: :btree
+  add_index "feedback", ["text_filter_id"], name: "index_feedback_on_text_filter_id", using: :btree
 
   create_table "page_caches", force: true do |t|
     t.string "name"
   end
 
-  add_index "page_caches", ["name"], name: "index_page_caches_on_name"
+  add_index "page_caches", ["name"], name: "index_page_caches_on_name", using: :btree
 
   create_table "pings", force: true do |t|
     t.integer  "article_id"
@@ -90,7 +93,7 @@ ActiveRecord::Schema.define(version: 115) do
     t.datetime "created_at"
   end
 
-  add_index "pings", ["article_id"], name: "index_pings_on_article_id"
+  add_index "pings", ["article_id"], name: "index_pings_on_article_id", using: :btree
 
   create_table "post_types", force: true do |t|
     t.string "name"
