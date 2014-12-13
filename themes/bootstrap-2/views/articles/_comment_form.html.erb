@@ -1,14 +1,11 @@
 <%= form_tag @article.comment_url do %>
 <div id='commentform'>
   <h3><%= t(".comment")%> <em><%=@article.title%></em></h3>
-  <div class='form-group'>
+  <div class='form-group name'>
   <%= text_field "comment", "author", :class => 'form-control', :placeholder => t(".your_name") %>  	
   </div>
-  <div class='form-group'>
+  <div class='form-group email'>
     <%= text_field "comment", "email", :class => 'form-control', :placeholder => t(".email_address") %>
-  </div>
-  <div class='form-group'>
-  <%= text_field "comment", "url", :class => 'form-control', :placeholder => t(".your_website") %>
   </div>
   <div class='form-group'>
     <%= text_area 'comment', 'body', :rows => 8, :class => 'form-control' %>
