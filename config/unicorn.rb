@@ -4,7 +4,7 @@ worker_processes 3
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "/tmp/sockets/unicorn.sock", :backlog => 64
+listen "/home/deployer/apps/#{app_dir}/current/tmp/sockets/unicorn.sock", :backlog => 64
 
 # Preload our app for more speed
 preload_app true
