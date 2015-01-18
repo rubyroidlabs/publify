@@ -1,5 +1,6 @@
 <div class="article" id="article-<%= @article.id %>">
-  <h1 class='page-header'><%= link_to_permalink(@article,@article.title) %></h1>
+  <!-- <h1 class='page-header'><%= link_to_permalink(@article,@article.title) %></h1> -->
+  <h1 class='page-header'><%= @article.title %></h1>
 
   <%= render 'articles/protected_article_content', { article: @article } %>
   <%= render 'articles/meta', article: @article %>
@@ -11,10 +12,11 @@
   <% end %>
 
   <% if @article.allow_comments? or @article.published_comments.size > 0 -%>
-  <h3 class="feedback" id="commentaires">
+  <!-- <h3 class="feedback" id="commentaires">
     <%= render 'articles/comment_counter', article: @article %>
     <a href="#commentform" ref="nofollow"> &raquo;</a>
-  </h3>
+  </h3> -->
+  <hr>
   <%= render "articles/comment_list" %>
   <% end -%>
 
@@ -27,7 +29,7 @@
   <% end %>
 
   <% if @article.allow_pings? -%>
-  <h5 class="feedback" id="trackbacks"><%= t('.trackbacks_for')%> <em><%= @article.title %></em></h5>
+  <!-- <h5 class="feedback" id="trackbacks"><%= t('.trackbacks_for')%> <em><%= @article.title %></em></h5> -->
   <% unless @article.published_trackbacks.blank? -%>
   <ol id="trackbacks" class="trackbacks">
     <%= render "trackback", :collection => @article.published_trackbacks %>
